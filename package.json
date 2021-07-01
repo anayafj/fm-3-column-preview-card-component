@@ -1,0 +1,23 @@
+{
+  "name": "fm-3-column-preview-card-component",
+  "version": "1.0.0",
+  "description": "![Design preview for the 3-column preview card component coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass -watch styles -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anayafj/fm-3-column-preview-card-component.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anayafj/fm-3-column-preview-card-component/issues"
+  },
+  "homepage": "https://github.com/anayafj/fm-3-column-preview-card-component#readme",
+  "dependencies": {
+    "node-sass": "^6.0.1"
+  }
+}
