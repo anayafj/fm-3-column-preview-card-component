@@ -1,6 +1,4 @@
-// Default Sass file
-
-// Variables -----------------------------/@at-root
+// Variables -----------------------------///
 
 // Design sizes ------------------------------------
 
@@ -13,7 +11,10 @@ $mainWidth: 1300px;
 $mainHeight: 722px;
 
 $cardWidth: 278px;
-$cardHeight: 450px;
+$cardHeight: 500px;
+$cardHeightMobile: 440px;
+
+$min-height: $cardHeight + 80;
 
 $cardContainerWidth: $cardWidth * 3;
 
@@ -32,6 +33,11 @@ $transparentWhite: hsla(0, 0%, 100%, 0.75);
 $verylightGray: hsl(0, 0%, 95%);
 
 // ----------------------------------------------------
+// @Media Breakpoints
+
+$breakpoint-mobile-end: 480px;
+$breakpoint-mobile-tablet: 600px;
+$breakpoint-tablet-end: 768px;
 
 //-----------------------------------------------------------------------
 html {
@@ -52,8 +58,9 @@ body {
 	height: 100%;
 	max-height: $desktopHeight;
 	max-width: $desktopWidth;
+	min-height: $min-height;
 	margin: 0 auto;
-	background-color: #222;
+	background-color: #fff;
 
 	main {
 		display: flex;
@@ -63,32 +70,69 @@ body {
 		height: 100%;
 		max-height: $mainHeight;
 		max-width: $mainWidth;
+		min-height: $min-height;
 		margin: 0 auto;
 		padding: 40px;
 		background-color: $verylightGray;
 
+		@media screen and (max-width: $breakpoint-tablet-end) {
+			padding: 20px;
+		}
+
+		@media screen and (max-width: $breakpoint-mobile-tablet) {
+			align-items: flex-start;
+			padding: 40px;
+			margin: 0;
+			width: 100%;
+			max-height: none;
+		}
+
 		.cardsContainer {
 			display: flex;
-			// justify-content: center;
-			// align-items: center;
 			width: 100%;
 			height: 100%;
 			max-width: $cardContainerWidth;
 			max-height: $cardHeight;
 			margin: 20px 40px 0;
 
+			@media screen and (max-width: $breakpoint-tablet-end) {
+				margin: 0;
+			}
+
+			@media screen and (max-width: $breakpoint-mobile-tablet) {
+				flex-direction: column;
+				max-width: none;
+				max-height: $cardHeightMobile;
+			}
+
 			.cards {
-				// position: relative;
-				// display: inline-block;
+				display: inline-flex;
+				justify-content: space-between;
+				flex-direction: column;
 				width: ($cardWidth / $cardContainerWidth) * 100%;
 				height: $cardHeight;
 				max-height: $cardHeight;
 				max-width: $cardWidth;
 				padding: 46px;
 
+				@media screen and (max-width: 979px) {
+					padding: 46px 30px;
+				}
+
+				@media screen and (max-width: $breakpoint-tablet-end) {
+					padding: 46px 20px;
+				}
+
+				@media screen and (max-width: $breakpoint-mobile-tablet) {
+					width: 100%;
+					height: 100%;
+					max-height: $cardHeightMobile;
+					max-width: none;
+					padding: 30px;
+				}
+
 				h1 {
 					font-family: 'Big Shoulders Display', cursive;
-					font-weight: 700;
 					text-transform: uppercase;
 					color: $verylightGray;
 				}
@@ -99,19 +143,17 @@ body {
 					font-size: 1rem;
 					color: $transparentWhite;
 
-					// @media screen and (max-width: 1024px) {
-					// 	font-size: 0.95rem;
-					// }
+					@media screen and (max-width: 979px) {
+						font-size: 0.95rem;
+					}
 				}
 
 				button {
-					// position: relative;
-					// bottom: 0;
 					border-radius: 25px;
 					border: 2px solid $verylightGray;
 					height: 48px;
 					width: 148px;
-					margin-top: 45px;
+					margin-top: 60px;
 					background: $verylightGray;
 					transition: all 0.3s ease-out;
 					cursor: pointer;
@@ -121,11 +163,29 @@ body {
 						color: $transparentWhite !important;
 						transition: all 0.3s ease-out;
 					}
+
+					@media screen and (max-width: 979px) {
+						margin-top: 30px;
+					}
+
+					@media screen and (max-width: $breakpoint-tablet-end) {
+						width: 120px;
+						height: 32px;
+						margin-top: 20px;
+					}
+
+					@media screen and (max-width: $breakpoint-mobile-tablet) {
+						font-size: 0.8rem;
+					}
 				}
 
 				&.card1 {
 					border-radius: 10px 0 0 10px;
 					background-color: $brightOrange;
+
+					@media screen and (max-width: $breakpoint-mobile-tablet) {
+						border-radius: 10px 10px 0 0;
+					}
 
 					button {
 						color: $brightOrange;
@@ -144,6 +204,10 @@ body {
 					background-color: $veryDarkCyan;
 					border-radius: 0 10px 10px 0;
 
+					@media screen and (max-width: $breakpoint-mobile-tablet) {
+						border-radius: 0 0 10px 10px;
+					}
+
 					button {
 						color: $veryDarkCyan;
 					}
@@ -153,14 +217,14 @@ body {
 	}
 }
 
-// .attribution {
-//     font-size: 11px;
-//     text-align: center;
-//   }
+.attribution {
+	font-size: 11px;
+	text-align: center;
+}
 
-//   .attribution a {
-//     color: hsl(228, 45%, 44%);
-//   }
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
 
 ////// info ---------
 // .class {
